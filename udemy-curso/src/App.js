@@ -41,6 +41,28 @@ Title.defaultProps = {
   title: 'Default Title'
 }
 
+
+class Contador extends Component {
+  constructor() {
+    super()
+    this.state = { contador: 1 }
+  }
+
+  render() {
+    return <span>{this.state.contador}</span>
+  }
+}
+
+class ContadorClassFields extends Component {
+  state = { contador: 1 }
+
+  render() {
+    return <span>{this.state.contador}</span>
+  }
+}
+
+
+
 function App() {
   return (
     <div className="App">
@@ -67,6 +89,7 @@ function App() {
             title={<h1>This is a title</h1>}
         />
         <Title />
+        <Contador />
       </header>
     </div>
   );
