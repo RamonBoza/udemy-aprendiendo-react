@@ -31,6 +31,16 @@ class Text extends Component {
   }
 }
 
+class Title extends Component {
+  render() {
+    return <h1>{this.props.title}</h1>
+  }
+}
+
+Title.defaultProps = {
+  title: 'Default Title'
+}
+
 function App() {
   return (
     <div className="App">
@@ -56,6 +66,7 @@ function App() {
             number={2}
             title={<h1>This is a title</h1>}
         />
+        <Title />
       </header>
     </div>
   );
