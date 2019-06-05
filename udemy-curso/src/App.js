@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -9,7 +9,27 @@ function Hello (props) {
 
 // const Hello = (props) => <h2>{props.title}</h2>
 
- 
+class Text extends Component {
+  render() {
+
+    const {
+      arrayOfNumbers,
+      multiply,
+      objectWithInfo,
+      title
+    } = this.props
+
+    const mappedNumber = arrayOfNumbers.map(multiply)
+
+    return (
+        <div>
+          <p>{title}</p>
+          <p>{mappedNumber.join(', ')}</p>
+          <p>{objectWithInfo.key}</p>
+        </div>
+    )
+  }
+}
 
 function App() {
   return (
@@ -28,6 +48,14 @@ function App() {
           Learn React
         </a>
         <Hello title='Hellow from props'/>
+        <Text
+            arrayOfNumbers={[2, 3, 10]}
+            objectWithInfo={{ key: 'First Value', key2: 'otherVAlue' }}
+            isActivated
+            multiply={ (number => number * 4)}
+            number={2}
+            title={<h1>This is a title</h1>}
+        />
       </header>
     </div>
   );
