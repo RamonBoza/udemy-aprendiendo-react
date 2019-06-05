@@ -61,6 +61,22 @@ class ContadorClassFields extends Component {
   }
 }
 
+class ContadorAutoIncrement extends Component {
+  constructor() {
+    super()
+    this.state = { contador: 1}
+    setInterval(() => {
+      this.setState({ contador: this.state.contador + 1 })
+    }, 1000)
+  }
+
+  render() {
+    return <span>{this.state.contador}</span>
+  }
+
+
+}
+
 
 
 function App() {
@@ -89,7 +105,7 @@ function App() {
             title={<h1>This is a title</h1>}
         />
         <Title />
-        <Contador />
+        <ContadorAutoIncrement />
       </header>
     </div>
   );
