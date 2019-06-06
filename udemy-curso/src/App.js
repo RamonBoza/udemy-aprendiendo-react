@@ -62,19 +62,27 @@ class ContadorClassFields extends Component {
 }
 
 class ContadorAutoIncrement extends Component {
-  constructor() {
-    super()
-    this.state = { contador: 1}
+  constructor(props) {
+    super(props)
+    this.state = { contador: this.props.contadorInicial }
     setInterval(() => {
       this.setState({ contador: this.state.contador + 1 })
     }, 1000)
   }
 
   render() {
-    return <span>{this.state.contador}</span>
+    return <ContadorNumero numero={this.state.contador} />
   }
+}
 
+ContadorAutoIncrement.defaultProps = {
+  contadorInicial: 0
+}
 
+class ContadorNumero extends Component {
+  render() {
+    return <span>{this.props.numero}</span>
+  }
 }
 
 
@@ -105,7 +113,7 @@ function App() {
             title={<h1>This is a title</h1>}
         />
         <Title />
-        <ContadorAutoIncrement />
+        <ContadorAutoIncrement contadorInicial={100} />
       </header>
     </div>
   );
