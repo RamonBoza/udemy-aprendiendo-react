@@ -12,12 +12,6 @@ class ComponentB extends Component {
     }
 }
 
-function useConditionalRender (mostrarA) {
-    if (mostrarA) {
-        return <ComponentA />
-    }
-    return <ComponentB />
-}
 
 
 export default class ConditionalSection extends Component {
@@ -28,10 +22,11 @@ export default class ConditionalSection extends Component {
     }
 
     render() {
+
         return (
             <div>
                 <h4>Conditional Rendering</h4>
-                {useConditionalRender(this.state.mostrarA)}
+                {this.state.mostrarA ? <ComponentA /> : <ComponentB />}
             </div>
         )
     }
