@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 
 const ANIMAL_IMAGES = {
@@ -9,17 +9,39 @@ const ANIMAL_IMAGES = {
 
 const ANIMALS = Object.keys(ANIMAL_IMAGES)
 
-class AnimalImage extends PureComponent {
+class AnimalImage extends Component {
     state = { src: ANIMAL_IMAGES[this.props.animal]}
 
     componentWillReceiveProps(nextProps, nextContext) {
+        console.clear()
         console.log('1. componentWillReceiveProps')
         console.log(nextProps)
         this.setState({ src: ANIMAL_IMAGES[nextProps.animal]})
     }
 
+    shouldComponentUpdate(nextProps, nextState, nextContext) {
+        console.log('2. shouldComponentUpdate')
+        console.log(nextProps)
+
+        return this.props.animal !== nextProps.animal
+    }
+
+    componentWillUpdate(nextProps, nextState, nextContext) {
+        console.log('3. componentWillUpdate', nextProps, nextState)
+        const img = document.querySelector('img')
+        console.log('from img element', { alt: img.alt })
+        img.animate([{
+            filter: 'blur(0px)'
+        }, {
+            filter: 'blur(2px)'
+        }], {
+            duration: 500,
+            easing: 'ease'
+        })
+    }
+
     render() {
-        console.log('3. render')
+        console.log('-> render')
         return (
             <div>
                 <p>Selected {this.props.animal}</p>
