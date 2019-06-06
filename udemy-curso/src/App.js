@@ -1,30 +1,22 @@
 import React, { Component } from 'react';
-import Forms from './sections/forms'
 
+
+class Box extends Component {
+  render() {
+    return (
+        <div style={{ border: '1px solid #000', margin: 5, padding: 5}}>
+          {this.props.children}
+        </div>
+    )
+  }
+}
 
 class App extends Component {
 
-  constructor() {
-    super()
-    this.state = { mouseX: 0, mouseY: 0 }
-    // this.handleMouseMove = this.handleMouseMove.bind(this) // replacing by arrow function
-  }
-
-  handleMouseMove = (e) => {
-    const { clientX, clientY } = e
-    this.setState({ mouseX: clientX, mouseY: clientY })
-  }
-
-  handleClick (e) {
-    console.log(e)
-    alert('Hi here!')
-  }
-
   render() {
-
     return (
         <div className="App">
-          <Forms />
+          <Box>Hola pavo</Box>
         </div>
     )
   }
