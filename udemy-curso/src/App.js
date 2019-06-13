@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import EjemploComposicionVsHerencia from './sections/best-practices/componentInheritance'
+import ComponentsContainerContentExample from './sections/best-practices/ComponentsContainerContentExample'
 
 class App extends Component {
   render() {
     return (
         <div className="App">
-          <EjemploComposicionVsHerencia/>
+          <ComponentsContainerContentExample/>
         </div>
     )
   }
