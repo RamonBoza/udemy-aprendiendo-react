@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * CLASS ARTICLE
@@ -35,6 +36,13 @@ function Article (props) {
             </article>
         </section>
     )
+}
+
+Article.propTypes = {
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    children: PropTypes.any
 }
 
 
