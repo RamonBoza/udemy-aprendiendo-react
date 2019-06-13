@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import EjemploDeCicloDeActualizacion from './sections/ejemploCicloDeActualizacion'
+import EjemploComponentWillUnmount from './sections/life-cycle/ejemploComponentWillUnmount'
 
 class App extends Component {
   render() {
     return (
         <div className="App">
-          <EjemploDeCicloDeActualizacion />
+          <EjemploComponentWillUnmount />
         </div>
     )
   }
