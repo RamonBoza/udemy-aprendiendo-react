@@ -9,7 +9,9 @@ function App() {
   return (
     <div className="App">
       <Title>Search Movies</Title>
-      <SearchForm />
+      <div className='SearchForm-wrapper'>
+        <SearchForm />
+      </div>
     </div>
   );
 }
