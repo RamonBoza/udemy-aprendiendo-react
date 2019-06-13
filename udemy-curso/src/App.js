@@ -4,9 +4,11 @@ import ComponentsContainerContentExample from './sections/best-practices/Compone
 class App extends Component {
   render() {
     return (
+
         <div className="App">
           <ComponentsContainerContentExample/>
         </div>
+
     )
   }
 }
